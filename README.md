@@ -27,44 +27,65 @@ A lightweight, robust data validation and ETL pipeline built with Python. It pro
 ✨ Features
 Decoupled Architecture: Clean separation of business logic (src/validator.py), ETL execution (src/pipeline.py), and test automation (tests/).
 
-Data Quarantine Pattern: Faulty rows are never discarded silently; they are saved alongside actionable root-cause descriptions.
+Data Quarantine Pattern: Faulty rows are never discarded silently; they are stored alongside actionable root-cause descriptions.
 
-Custom Exceptions: Domain-specific hierarchy (ValidationError, InvalidEmailError, InvalidPhoneError) for precise error capture.
+Custom Exception Hierarchy: Domain-specific exceptions (ValidationError, InvalidEmailError, InvalidPhoneError) for precise error capture and reporting.
 
-Domain Business Rules: Includes strict regex-based Turkish mobile phone validation (+90 5xx, 05xx, 5xx), disallowing landline prefixes and irregular lengths.
+Domain Business Rules: Implements strict regex-based Turkish mobile phone validation (+90 5xx, 05xx, 5xx), disallowing landline prefixes and irregular lengths.
 
-Metrics & Reporting: Real-time console metrics summarizing throughput, clean rates, and categorical error breakdowns via collections.Counter.
+Real-Time Reporting: Console metrics summarizing throughput, clean rates, and categorical error breakdowns via collections.Counter.
 
-Zero Third-Party Runtime Dependencies: Implemented entirely using Python standard libraries (pathlib, csv, re, collections, unittest).
+Zero Runtime Dependencies: Built strictly using Python's standard library (pathlib, csv, re, collections, unittest).
 
+📁 Project Structure
+Plaintext
 data-quarantine-pipeline/
 ├── data/
-│   ├── raw/                 # Input datasets
-│   ├── clean/               # Validated records
+│   ├── raw/                 # Input dataset (users.csv)
+│   ├── clean/               # Validated clean records
 │   └── quarantine/          # Rejected records with error reasons
 ├── src/
 │   ├── __init__.py
-│   ├── validator.py         # Validation rules & custom exceptions
+│   ├── validator.py         # Validation logic & custom exceptions
 │   └── pipeline.py          # ETL workflow & metrics reporting
 ├── tests/
 │   ├── __init__.py
 │   └── test_validator.py    # Unit tests for validation logic
 ├── .gitignore
 └── README.md
-
-
-🚀 Getting Started
+🚀 Quick Start & Reproduction
 Prerequisites
 Python 3.10+
 
-Execution
-To run the pipeline and generate clean/quarantined datasets:
+Git
 
+1. Clone the Repository
+Bash
+git clone [https://github.com/KULLANICI_ADIN/data-quarantine-pipeline.git](https://github.com/KULLANICI_ADIN/data-quarantine-pipeline.git)
+cd data-quarantine-pipeline
+(Replace KULLANICI_ADIN with your actual GitHub username)
+
+2. Run Automated Unit Tests
+Verify regex validation rules, exception handling, and edge cases before running the pipeline:
+
+Bash
+python3 -m unittest discover tests
+Expected output:
+
+Plaintext
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+3. Execute the Pipeline
+Process the raw data and generate the output datasets:
+
+Bash
 python3 -m src.pipeline
+Sample console output:
 
-
-Sample output:
-
+Plaintext
 ========================================
        PIPELINE EXECUTION REPORT       
 ========================================
@@ -80,8 +101,9 @@ Quarantine Reasons Breakdown:
 ========================================
 
 Pipeline executed successfully!
+4. Inspect Generated Artifacts
+Once executed, check the generated output CSVs:
 
-🧪 Running Unit Tests
-Automated test suites ensure regex coverage, edge-case validation, and boundary conditions:
+Clean data: data/clean/clean_users.csv
 
-python3 -m unittest discover tests
+Quarantined data: data/quarantine/quarantine_users.csv
