@@ -1,0 +1,5 @@
+name,email,phone,error_reason
+Jane Smith,invalid-email,05321112233,Invalid email format: invalid-email
+Michael Brown,michael@domain.com,02129998877,Invalid phone number: 02129998877
+Alex Taylor,,05051234567,Email address cannot be empty.
+David Wilson,david@company.org,12345,Invalid phone number: 12345
