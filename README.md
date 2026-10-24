@@ -61,9 +61,9 @@ Git
 
 1. Clone the Repository
 Bash
-git clone [https://github.com/KULLANICI_ADIN/data-quarantine-pipeline.git](https://github.com/KULLANICI_ADIN/data-quarantine-pipeline.git)
+git clone [https://github.com/USER_NAME/data-quarantine-pipeline.git](https://github.com/USER_NAME/data-quarantine-pipeline.git)
 cd data-quarantine-pipeline
-(Replace KULLANICI_ADIN with your actual GitHub username)
+(Replace USER_NAME with your actual GitHub username)
 
 2. Run Automated Unit Tests
 Verify regex validation rules, exception handling, and edge cases before running the pipeline:
