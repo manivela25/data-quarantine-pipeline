@@ -1,4 +1,6 @@
-    # Data Quality & Quarantine Pipeline
+# Data Quality & Quarantine Pipeline
+
+![CI Pipeline](https://github.com/manivela25/data-quarantine-pipeline/actions/workflows/ci.yml/badge.svg)
 
 A lightweight, robust data validation and ETL pipeline built with Python. It processes raw CSV records, segregates clean
 data from invalid records, tags errors with specific violation reasons into a quarantine dataset, and outputs execution
@@ -109,3 +111,5 @@ Once executed, check the generated output CSVs:
 Clean data: data/clean/clean_users.csv
 
 Quarantined data: data/quarantine/quarantine_users.csv
+
+
