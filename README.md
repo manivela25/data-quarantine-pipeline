@@ -1,6 +1,8 @@
-# Data Quality & Quarantine Pipeline
+    # Data Quality & Quarantine Pipeline
 
-A lightweight, robust data validation and ETL pipeline built with Python. It processes raw CSV records, segregates clean data from invalid records, tags errors with specific violation reasons into a quarantine dataset, and outputs execution summary metrics.
+A lightweight, robust data validation and ETL pipeline built with Python. It processes raw CSV records, segregates clean
+data from invalid records, tags errors with specific violation reasons into a quarantine dataset, and outputs execution
+summary metrics.
 
 ---
 
